@@ -1,0 +1,37 @@
+{% extends 'layout.html' %} 
+
+{% block title %} Lista {% endblock %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<div class="container mt-2">
+  <form action="{{url_for('cadastrar')}}" method="POST">  
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"><b>Nome</b></label>
+        <input type="text" class="form-control" name ="nome" id="exampleFormControlInput1" placeholder="Nome do Livro">
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"><b>Editora</b></label>
+        <input type="text" class="form-control" name ="editora" id="exampleFormControlInput1" placeholder="Nome da editora">
+    </div>
+    <div class="mb-5">
+      <label for="exampleFormControlInput1" class="form-label"><b>Autor</b></label>
+      <input type="text" class="form-control" name ="autor" id="exampleFormControlInput1" placeholder="Nome do autor">
+    </div>
+    <div class="container-fluid row p">
+      <div class="input-group mb-3 col-6 pl-0 pr-5" style="height: 50%;">
+        <span class="input-group-text">R$</span><input type="text" name ="valor"class="form-control" placeholder="Valor do Livro">
+        <span class="input-group-text">.00</span>
+      </div>
+      <div class="mb-3 col-4 pl-5">
+          <input type="number" class="form-control" name ="quantidade" id="exampleFormControlInput1" placeholder="Quantidade de Livro">
+      </div>
+    </div>
+    <br>
+    <br>
+    <a class="nav-link pl-0"><button type="submit" class="btn btn-dark">Cadastrar</button></a>
+  </form>
+</div>
+{% endblock %}
