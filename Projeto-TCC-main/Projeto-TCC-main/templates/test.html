@@ -1,0 +1,29 @@
+<div class="container mt-6">
+    <br>
+    <br>
+    <table  class="table table-dark table-hover">
+        <tr>
+            <td><b>Nome</b></td>
+            <td><b>Autor</b></td>
+            <td><b>Editora</b></td>
+            <td><b>Preço</b></td>
+            <td><b>Quantidade</b></td>
+            <td><b>Atualizar</b></td>
+            <td><b>Excluir</b></td>
+        </tr>
+        {% for livro in livros %}
+        <tr>
+            <td>{{ livro.nome}}</td>
+            <td>{{ livro.autor}}</td>
+            <td>{{ livro.editora}}</td>
+            <td>{{ livro.valor}}</td>
+            <td>{{ livro.quantidade}}</td>
+            <td><a href="/atualizar/{{livro.id}}">Atualizar</a></td>
+            <td><a href="/excluir/{{livro.id}}">X</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+<br>
+<br>
+<br>
