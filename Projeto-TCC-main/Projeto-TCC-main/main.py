@@ -3,7 +3,12 @@ from app import *
 @app.route('/') 
 def index():
 
-    livros = Livros.query.all()
+    search = request.args.get('search')
+    livros = Livros.query.filter(
+        Livros.nome.like(f'%{search}%') | 
+        Livros.editora.like(f'%{search}%') |
+        Livros.autor.like(f'%{search}%')
+    ).all() if search else Livros.query.all()
 
     return render_template('home.html', livros=livros)
 
