@@ -1,4 +1,5 @@
 from app import *
+from functions import *
 
 @app.route('/') 
 def index():
@@ -65,6 +66,68 @@ def atualizar(id):
         
     return render_template("atualizar.html", livro=livro)
             
+@app.route("/cadastro/<int:id>", methods=['GET', 'POST'])
+def cadastro(id):
+
+    if request.method == "POST":
+        nome = request.form.get("comprador")
+        cpf = request.form.get("cpf")
+        telefone = request.form.get("telefone")
+        email = request.form.get("email")
+
+        if nome and cpf and telefone and email:
+            C = Comprador(nome, cpf, telefone, email, livro_id=id)
+            db.session.add(C)
+            livro = Livros.query.filter_by(id=id).first()
+            livro.quantidade -= 1 
+            db.session.commit()
+
+        # Buscar informações do livro
+        livro_info = {
+            'titulo': livro.nome,
+            'autor': livro.autor,
+            'editora': livro.editora,
+            'valor': livro.valor
+        }
+
+        comprador = request.form.get("comprador")
+        cpf = request.form.get("cpf")
+        telefone = request.form.get("telefone")
+        email = request.form.get("email")
+        titulo = livro.nome
+        autor = livro.autor
+        editora = livro.editora
+        valor = livro.valor
+    
+        gerar_txt(comprador, cpf, telefone, email, titulo, autor, editora, valor)
+
+        return render_template("recibo.html", comprador=nome, cpf=cpf, telefone=telefone, email=email, **livro_info)
+
+    return render_template("cadastro.html")
+
+@app.route('/recibo', methods=['GET'])
+def recibo():
+    
+    return render_template('recibo.html')
+
+@app.route('/email', methods=['POST'])
+def email():
+
+    if 'btn_email' in request.form:
+        comprador = request.form.get("comprador")
+        cpf = request.form.get("cpf")
+        telefone = request.form.get("telefone")
+        email = request.form.get("email")
+        titulo = request.form.get("titulo")
+        autor = request.form.get("autor")
+        editora = request.form.get("editora")
+        valor = request.form.get("valor")
+    
+
+        enviar_email(comprador,cpf,telefone,email,titulo,autor,editora,valor)
+    
+    livros = Livros.query.all()
+    return render_template('home.html', livros=livros)
 
 
 if __name__ == '__main__':

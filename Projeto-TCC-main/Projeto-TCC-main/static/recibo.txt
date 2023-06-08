@@ -1,0 +1,19 @@
+
+        Recibo - Biblioteca ReadMe
+
+        Comprador:
+        Nome: Paulo Negri
+        CPF: 999.999.999-99
+        Telefone: (11)12345-6789
+        E-mail: bibliotecareadme@outlook.com
+
+        Livro Comprado:
+        Título: Harry Potter 
+        Autor: J.K. Rowling
+        Editora: Rocco
+
+        Total: R$ 50
+
+        Agradecemos pela compra!
+        Biblioteca ReadMe
+    

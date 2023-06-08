@@ -23,6 +23,22 @@ class Livros(db.Model):
         self.editora = editora
         self.quantidade = quantidade
 
+class Comprador(db.Model):
+    id_comprador = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    nome = db.Column(db.String(60)) 
+    cpf = db.Column(db.String(14))
+    telefone = db.Column(db.db.String(14))
+    email = db.Column(db.String(60)) 
+    livro_id = db.Column(db.Integer, db.ForeignKey('livros.id'))
+
+    def __init__(self,nome,cpf,telefone,email,livro_id):
+        self.nome = nome
+        self.cpf = cpf
+        self.telefone = telefone
+        self.email = email
+        self.livro_id = livro_id
+
+
 with app.app_context():
     db.create_all()
 

@@ -1,0 +1,74 @@
+{% extends 'layout.html' %} 
+
+{% block title %} Cadastro {% endblock %}
+
+{% block content %}
+<div class="container" style="background-color: rgb(136, 133, 133, 0.727);" style="font-family: Arial, sans-serif;">
+    <br>
+    <div style="max-width: 500px; margin: 0 auto; padding: 20px; border: 1px solid #ccc; background-color: #f9f9f9;">
+        <h2 style="text-align: center;">Recibo - Biblioteca ReadMe</h2>
+        <hr>
+        <table style="width: 100%; margin-bottom: 20px; border-collapse: collapse;">
+            <tr>
+                <th colspan="2">Informações do Comprador</th>
+            </tr>
+            <tr>
+                <td>Nome:</td>
+                <td>{{comprador}}</td>
+            </tr>
+            <tr>
+                <td>CPF:</td>
+                <td>{{cpf}}</td>
+            </tr>
+            <tr>
+                <td>Telefone:</td>
+                <td>{{telefone}}</td>
+            </tr>
+            <tr>
+                <td>E-mail:</td>
+                <td>{{email}}</td>
+            </tr>
+        </table>
+        <hr>
+        <table style="width: 100%; margin-bottom: 20px; border-collapse: collapse;">
+            <tr>
+                <th colspan="2">Livro Comprado</th>
+            </tr>
+            <tr>
+                <td>Título:</td>
+                <td>{{titulo}}</td>
+            </tr>
+            <tr>
+                <td>Autor:</td>
+                <td>{{autor}}</td>
+            </tr>
+            <tr>
+                <td>Editora:</td>
+                <td>{{editora}}</td>
+            </tr>
+        </table>
+        <hr>
+        <table style="width: 100%; margin-bottom: 20px; border-collapse: collapse;">
+            <tr>
+                <th>Total:</th>
+                <td>R$ {{valor}}</td>
+            </tr>
+        </table>
+        <hr>
+        <br>
+        <p><i>Agradecemos pela preferência!</i></p>
+        <p><strong>Biblioteca ReadMe</strong></p>
+        <div class="d-flex justify-content-between">
+            <a class="nav-link pl-0" href="../static/recibo.txt"  download="recibo.pdf"><button type="submit" class="btn btn-info">Imprimir</button></a>
+            <form action="/email" method="POST">
+            <a class="nav-link pl-0"><button type="submit" class="btn btn-success" name="btn_email">Enviar</button></a>
+            </form>
+            <a class="nav-link pl-0" href="{{url_for('index')}}"><button type="submit" class="btn btn-Danger">Sair</button></a>
+        </div>
+        <small><i><sub>Este recibo é apenas um demonstrativo e não possui validade fiscal.</sub></i></small>
+    </div>
+    <br>
+</div>
+<br>
+
+{% endblock %}

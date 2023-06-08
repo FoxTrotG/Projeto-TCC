@@ -1,0 +1,42 @@
+{% extends 'layout.html' %} 
+
+{% block title %} Cadastro {% endblock %}
+
+{% block content %}
+<div class="container" style="color:aliceblue; background-color: rgba(136, 133, 133, 0.727);">
+  <br>
+  <br>
+  <br>
+  <form method="POST">  
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"><b>Nome</b></label>
+        <input type="text" class="form-control" name ="comprador" id="comprador" placeholder="Nome do Comprador">
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"><b>CPF</b></label>
+        <input type="text" class="form-control" name ="cpf" id="exampleFormControlInput1" placeholder="999.999.999-99"pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}">
+        <small>Formato: 999.999.999-99</small>
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"><b>Telefone</b></label>
+        <input type="text" class="form-control" name ="telefone" id="exampleFormControlInput1" placeholder="(99)99999-9999" pattern="\([0-9]{2}\)[0-9]{5}-[0-9]{4}">
+        <small>Formato: (99)99999-9999</small>
+    </div>
+    <div class="mb-5">
+      <label for="exampleFormControlInput1" class="form-label"><b>Email</b></label>
+      <input type="text" class="form-control" name ="email" id="exampleFormControlInput1" value="email@example.com" placeholder="Email do Comprador">
+    </div>
+    <div class="d-grid gap-2 col-1 mx-auto">
+        <a class="nav-link pl-0"><button type="submit" class="btn btn-success">Vender</button></a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </form>
+</div>
+
+{% endblock %}

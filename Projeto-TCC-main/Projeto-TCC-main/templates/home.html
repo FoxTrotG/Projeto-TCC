@@ -19,8 +19,9 @@
                 <p class="card-text"><b>Editora: </b>{{ livro.editora}}</p>
                 <p class="card-text"><b>Preço:</b> R${{ livro.valor}}.00</p>
                 <p class="card-text"><b>Quantidade: </b>{{ livro.quantidade}}</p>
+                <a href="/cadastro/{{livro.id}}" class="btn btn-success">Vender</a>
                 <a href="/atualizar/{{livro.id}}" class="btn btn-info">Atualizar</a>
-                <a href="/excluir/{{livro.id}}" class="btn btn-danger">X</a>
+                <a href="/excluir/{{livro.id}}" class="btn btn-danger">Excluir</a>
             </div>
         </div>
     </div>
